@@ -39,6 +39,7 @@ import DrawerNavigator from './src/navigations/DrawerNavigator';
 import CurrencyScreen from './src/screens/currency/Currency';
 import PortfolioScreen from './src/screens/portfolio/Portfolio';
 import ConverterScreen from './src/screens/converter/Converter';
+import Youtube from './src/screens/youtube/YouTube';
 
 
 
@@ -57,6 +58,8 @@ export default function App() {
         <Stack.Screen name="Currency" component={CurrencyScreen}  options={{ title: 'Overview', headerShown: false }}/>
         <Stack.Screen name="Portfolio" component={PortfolioScreen} />
         <Stack.Screen name="Convertor" component={ConverterScreen} />
+        <Stack.Screen name="Youtube" component={Youtube} />
+     
       </Stack.Navigator>
 
     </NavigationContainer>

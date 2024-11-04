@@ -80,14 +80,14 @@ const CustomDrawerContent = props => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttons}
-            onPress={() => navigation.navigate('GlobalJobCarrer')}>
+            onPress={() => navigation.navigate('Youtube')}>
             <Image
               tintColor={COLORS[theme]?.white}
               source={icons.globalJobIco}
               style={styles.icons}
             />
             <Text style={[styles.drawerItem, {color: COLORS[theme]?.white}]}>
-              Global Job
+              Youtube
             </Text>
           </TouchableOpacity>
           <TouchableOpacity

@@ -11,6 +11,7 @@ export const COLORS = {
   red2: '#5B6618',
   grey: '#161616',
   grey50: '#333333',
+  skyBlue : '#539DF3',
   transparent: 'transparent',
   dropDownGrey:'#323232',
   dark:{
@@ -29,7 +30,8 @@ export const COLORS = {
     down:'#FF4072',
     up:'#009784'
   },
-  White:{
+
+  White: {
     black: '#000000',
     white: '#FFFFFF',
     
