@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "645850876544",
+    "firebase_url": "https://nexus-3a8d8-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "nexus-3a8d8",
+    "storage_bucket": "nexus-3a8d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645850876544:android:447fa16307711798f6b465",
+        "android_client_info": {
+          "package_name": "com.test.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB42dfarY1-0d-FSAD59EOL9ye7PFYFJVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

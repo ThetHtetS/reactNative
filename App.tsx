@@ -5,7 +5,7 @@
  * @format
  */
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -19,6 +19,7 @@ import {
   Text,
   useColorScheme,
   View,
+  PermissionsAndroid, Platform,
 } from 'react-native';
 
 import {
@@ -41,12 +42,44 @@ import PortfolioScreen from './src/screens/portfolio/Portfolio';
 import ConverterScreen from './src/screens/converter/Converter';
 import Youtube from './src/screens/youtube/YouTube';
 
-
+import messaging from '@react-native-firebase/messaging';
 
 const Stack = createNativeStackNavigator();
 // const Drawer = createDrawerNavigator();
 
 export default function App() {
+
+  const requestUserPermission = async () => {
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
+      );
+    }
+    const authStatus = await messaging().requestPermission();
+    return (
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL
+    );
+  };
+  
+  useEffect(() => {
+    console.log('App.tsx');
+    // requestUserPermission().then(granted => {
+    //   if (granted) {
+        console.log('User granted permission');
+        messaging()
+          .getToken()
+          .then(fcmToken => {
+            console.log('FCM Token -> ', fcmToken);
+          
+          })
+          .catch(err=> console.log('FCM Token Error -> ', err));
+      // } else {
+      //   console.log('User declined permission');
+      // }})
+        
+  }, [])
+
   return (
     <NavigationContainer>
       {/* <Drawer.Navigator initialRouteName="Home">
