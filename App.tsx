@@ -20,6 +20,7 @@ import {
   useColorScheme,
   View,
   PermissionsAndroid, Platform,
+  Linking
 } from 'react-native';
 
 import {
@@ -64,8 +65,8 @@ export default function App() {
   
   useEffect(() => {
     console.log('App.tsx');
-    // requestUserPermission().then(granted => {
-    //   if (granted) {
+    requestUserPermission().then(granted => {
+      if (granted) {
         console.log('User granted permission');
         messaging()
           .getToken()
@@ -74,14 +75,30 @@ export default function App() {
           
           })
           .catch(err=> console.log('FCM Token Error -> ', err));
-      // } else {
-      //   console.log('User declined permission');
-      // }})
+      } else {
+        console.log('User declined permission');
+      }})
         
   }, [])
 
+  const linking = {
+    prefixes: ['testapp://'],
+    config:  {
+      screens: {
+        Currency: 'Currency',
+        Portfolio: 'Portfolio',
+      },
+    }
+  };
+
+
+ useEffect(()=> {
+    Linking.openURL('testapp://Portfolio').then(res => console.log(res, "success") ).catch((err) => {
+      console.log('Failed to open URL', err);
+    });
+}, [])
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       {/* <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
